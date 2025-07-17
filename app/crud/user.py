@@ -16,7 +16,9 @@ def get_user_by_mobile(session: SessionDep, mobile: str):
 
 def create_user(session: SessionDep, user: UserCreate) -> UserRead:
     hashed_password = get_password_hash(user.password)
-    db_user = User(**user.dict(), hashed_password=hashed_password)
+    db_user = User(
+        **user.model_dump(exclude={"password"}), hashed_password=hashed_password
+    )
     session.add(db_user)
     session.commit()
     session.refresh(db_user)
