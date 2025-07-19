@@ -83,8 +83,8 @@ fastapi run app/main.py
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 ### ✅ **images**
-<img width="1920" height="2467" alt="screencapture-localhost-8000-docs-2025-07-20-01_00_58" src="https://github.com/user-attachments/assets/04a5db5a-8a87-4c1b-959b-bdfe7dbd11ed" />
 
+<img width="1920" height="1457" alt="screencapture-localhost-8000-docs-2025-07-20-01_36_49" src="https://github.com/user-attachments/assets/85d80b08-0b08-47bf-91b7-37fc87c30f3c" />
 
 ## Note
 
