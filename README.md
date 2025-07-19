@@ -8,6 +8,7 @@ This is a FastAPI-based backend application that includes core user management a
 - **User Registration**
   - Accepts profile image (uploaded via `multipart/form-data`)
   - Stores hashed password
+- **JWT-based authentication and route protection**
 - **Get All Users**
 - **Get Single User by ID**
 - **Update User Profile**
