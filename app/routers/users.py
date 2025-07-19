@@ -154,9 +154,27 @@ def update_user_profile(
     # Similar to above but only accessible by admin
     profile_image_path = None
     if update_data.profile_image:
-        # ... (same image handling logic as above)
-        pass
+        if update_data.profile_image.content_type not in ALLOWED_IMAGE_TYPES:
+            raise HTTPException(status_code=400, detail="Only JPEG/PNG images allowed")
 
+        contents = update_data.profile_image.file.read()
+        if len(contents) > MAX_IMAGE_SIZE:
+            raise HTTPException(status_code=400, detail="Image size exceeds 5mb limit")
+
+        # Delete old image if it exists
+        if profile_image_path and os.path.exists(profile_image_path):
+            os.remove(profile_image_path)
+
+        # Save new image
+        extension = update_data.profile_image.filename.split(".")[-1]
+        filename = f"{uuid.uuid4().hex}.{extension}"
+        filepath = os.path.join("media/profile_images", filename)
+
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+        with open(filepath, "wb") as f:
+            f.write(contents)
+
+        profile_image_path = filepath
     user_update = update_data.model_dump(exclude={"profile_image"}, exclude_unset=True)
     if profile_image_path:
         user_update["profile_image"] = profile_image_path

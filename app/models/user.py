@@ -1,8 +1,9 @@
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 from enum import Enum
 from fastapi import File, UploadFile, Form
 from typing import Annotated
 from pydantic import field_validator, EmailStr, BaseModel
+from app.models.appointment import Appointment
 
 
 class UserType(str, Enum):
