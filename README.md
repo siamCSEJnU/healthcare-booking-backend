@@ -82,8 +82,12 @@ fastapi run app/main.py
 
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
+### ✅ **images**
+<img width="1920" height="2467" alt="screencapture-localhost-8000-docs-2025-07-20-01_00_58" src="https://github.com/user-attachments/assets/04a5db5a-8a87-4c1b-959b-bdfe7dbd11ed" />
+
 
 ## Note
+
 - Profile images are handled via FastAPI File() and stored locally (or can be extended to use cloud storage).
 - The system validates that a doctor is not double-booked for the same time.
 - Passwords are stored securely using hashing.
